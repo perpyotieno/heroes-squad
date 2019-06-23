@@ -97,7 +97,7 @@ public class HeroTest {
         LocalDateTime formerDate = myHero.getCreatedAt();
         int formerId = myHero.getId();
 
-        myHero.update("Mercy", 35, "Fire-breather", "anger");
+        myHero.update("Mercy", 35, "night vision", "faithless");
 
         assertEquals(formerId, myHero.getId());
         assertEquals(formerDate, myHero.getCreatedAt());
@@ -105,5 +105,14 @@ public class HeroTest {
         assertNotEquals(formerAge, myHero.getAge());
         assertNotEquals(formerSpecialPowers, myHero.getSpecialPowers());
         assertNotEquals(formerWeakness, myHero.getWeakness());
+    }
+
+    @Test
+    public void deleteDeletesASpecificHero() throws Exception {
+        Hero myHero = setupNewHero();
+        Hero otherPost = new Hero("Mercy", 35, "night vision", "faithless");
+        myHero.deleteHero();
+        assertEquals(1, Hero.getAll().size());
+        assertEquals(Hero.getAll().get(0).getId(), 2);
     }
 }

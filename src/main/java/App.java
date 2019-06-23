@@ -52,5 +52,24 @@ return new ModelAndView(model, "index.hbs");
             return new ModelAndView(model, "hero.hbs");
         }, new HandlebarsTemplateEngine());
 
+        post("/heros/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = req.queryParams("name");
+            int newAge = Integer.parseInt(req.queryParams("age"));
+            String newSpecialPowers = req.queryParams("specialPowers");
+            String newWeakness = req.queryParams("weakness");
+            int idOfHeroToEdit = Integer.parseInt(req.params("id"));
+            Hero editHero = Hero.findById(idOfHeroToEdit);
+            editHero.update(newName, newAge, newSpecialPowers, newWeakness);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/posts/:id/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToDelete = Integer.parseInt(req.params("id"));
+            Hero deleteHero = Hero.findById(idOfPostToDelete);
+            deleteHero.deleteHero();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }
