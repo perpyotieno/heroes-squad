@@ -1,24 +1,37 @@
 {{#block "header"}}
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>
+                {{#block "title" }}Blog{{/block}}
 
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{#block "title"}}Welcome to Our Hero Squad Website{{/block}}</title>
-        <link rel="stylesheet" href="/css/main.css">
-    </head>
-    <body>
-{{/block}}
-<div class="page">
-{{#block "content"}}
+            </title>
+            <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+            <link rel='stylesheet' href='/app.css'>
+        </head>
+        <body>
+    {{/block}}
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="/heros/new">Heros</a></li>
+        <li role="presentation"><a href="/squad/new">Squad</a></li>
+    </ul>
+    <div class="container">
+        <!--begin main template-->
 
-{{/block}}
+        <div class="col-md-12">
+            {{#block "content"}}
+            {{/block}}
 
-{{#block "footer"}}
+        </div>
     </div>
-    </body>
-    </html>
-{{/block}}
+    {{#block "footer"}}
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted"><a href="/posts/delete">DELETE ALL POSTS</a></p>
+            </div>
+        </footer>
+        </body>
+        </html>
+    {{/block}}

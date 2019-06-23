@@ -41,10 +41,25 @@ public class HeroTest {
         assertEquals("envy", myHero.getWeakness() );
     }
 
-
-
-
     @After
     public void tearDown() throws Exception {
+        Hero.clearAllPosts();
     }
+
+    @Test
+    public void AllPostsAreCorrectlyReturned_true() {
+        Hero myHero= setupNewHero();
+        Hero otherHero = new Hero ("den", 20, "telepathy", "fear");
+        assertEquals(2, Hero.getAll().size());
+    }
+
+    @Test
+    public void AllPostsContainsAllPosts_true() {
+        Hero myHero= setupNewHero();
+        Hero otherHero = new Hero ("den", 20, "telepathy", "fear");
+        assertTrue(Hero.getAll().contains(myHero));
+        assertTrue(Hero.getAll().contains(otherHero));
+    }
+
+
 }
