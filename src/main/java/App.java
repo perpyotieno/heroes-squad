@@ -79,5 +79,29 @@ return new ModelAndView(model, "index.hbs");
 
 
 
+        //squad
+
+        get("/squad", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "squad-form.hbs");
+        },new HandlebarsTemplateEngine());
+
+        post("/squad/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String name = request.queryParams("name");
+            int squadSize = Integer.parseInt(request.queryParams("squadSize"));
+            String cause = request.queryParams("cause");
+            Squad newSquad = new Squad(name, squadSize, cause);
+            return new ModelAndView(model, "success2.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squad/list", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Squad> squads = Squad.getAll();
+            model.put("squads", squads);
+
+            return new ModelAndView(model, "squadList.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }

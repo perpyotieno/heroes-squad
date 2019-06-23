@@ -27,5 +27,8 @@ public class Squad {
     public String getCause(){
         return cause;
     }
+    public static ArrayList<Squad> getAll(){
+        return instances;
+    }
 }
 
