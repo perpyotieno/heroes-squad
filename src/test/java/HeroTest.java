@@ -25,6 +25,25 @@ public class HeroTest {
         assertEquals("perpy", myHero.getName() );
     }
 
+    @Test
+    public void HeroInstantiatesWithAge_true() throws Exception{
+        Hero myHero= setupNewHero();
+        assertEquals(30, myHero.getAge());
+    }
+    @Test
+    public void HeroInstantiatesWithSpecialPowers_true() throws Exception{
+        Hero myHero= setupNewHero();
+        assertEquals("shapeshifting", myHero.getSpecialPowers() );
+    }
+    @Test
+    public void HeroInstantiatesWithWeakness_true() throws Exception{
+        Hero myHero= setupNewHero();
+        assertEquals("envy", myHero.getWeakness() );
+    }
+
+
+
+
     @After
     public void tearDown() throws Exception {
     }
