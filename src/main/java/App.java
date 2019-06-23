@@ -29,10 +29,12 @@ return new ModelAndView(model, "index.hbs");
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        get("/heros/list", (request, response) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            ArrayList<Hero> heroes = Hero.getAll();
-//            model.put()
-//        })
+        get("/heros/list", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Hero> heroes = Hero.getAll();
+            model.put("heroes", heroes);
+
+            return new ModelAndView(model, "heroesList.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
