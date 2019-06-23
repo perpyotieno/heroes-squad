@@ -36,5 +36,13 @@ return new ModelAndView(model, "index.hbs");
 
             return new ModelAndView(model, "heroesList.hbs");
         }, new HandlebarsTemplateEngine());
+        get("/heros/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfHeroToFind = Integer.parseInt(request.params(":id"));
+            Hero foundHero = Hero.findById(idOfHeroToFind);
+            model.put("hero", foundHero);
+            return new ModelAndView(model, "hero-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }

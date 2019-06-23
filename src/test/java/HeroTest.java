@@ -68,4 +68,36 @@ public class HeroTest {
         Hero myHero = setupNewHero();
         assertEquals(LocalDateTime.now().getDayOfWeek(), myHero.getCreatedAt().getDayOfWeek());
     }
+    @Test
+    public void getId_postsInstantiateWithAnID_1() throws Exception{
+        Hero.clearAllPosts();
+        Hero myHero = setupNewHero();
+        assertEquals(1, myHero.getId());
+    }
+    @Test
+    public void findReturnsCorrectHero() throws Exception {
+        Hero myHero = setupNewHero();
+        assertEquals(1, Hero.findById(myHero.getId()).getId());
+    }
+
+    @Test
+    public void findReturnsCorrectPostWhenMoreThanOnePostExists() throws Exception {
+        Hero myHero = setupNewHero();
+       Hero otherPost = new Hero("Marvin",20,"Invisibility", "shy");
+        assertEquals(2, Hero.findById(otherPost.getId()).getId());
+    }
+//    @Test
+//    public void updateChangesHeroContent() throws Exception {
+//        Hero myHe = setupNewPost();
+//        String formerContent = post.getContent();
+//        LocalDateTime formerDate = post.getCreatedAt();
+//        int formerId = post.getId();
+//
+//        post.update("Android: Day 40");
+//
+//        assertEquals(formerId, post.getId());
+//        assertEquals(formerDate, post.getCreatedAt());
+//        assertNotEquals(formerContent, post.getContent());
+//    }
+//...
 }
