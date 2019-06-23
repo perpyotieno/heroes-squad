@@ -55,4 +55,11 @@ public class Hero {
         return instances.get(id-1);
     }
 
+    public void update(String name, int age, String specialPowers, String weakness) {
+        this.name = name;
+        this.age= age;
+        this.specialPowers= specialPowers;
+        this.weakness= weakness;
+    }
+
 }

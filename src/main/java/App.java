@@ -44,5 +44,13 @@ return new ModelAndView(model, "index.hbs");
             return new ModelAndView(model, "hero-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/heros/:id/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfHerotoEdit = Integer.parseInt(request.params("id"));
+            Hero editHero = Hero.findById(idOfHerotoEdit);
+            model.put("editHero", editHero);
+            return new ModelAndView(model, "hero.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }

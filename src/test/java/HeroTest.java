@@ -86,18 +86,24 @@ public class HeroTest {
        Hero otherPost = new Hero("Marvin",20,"Invisibility", "shy");
         assertEquals(2, Hero.findById(otherPost.getId()).getId());
     }
-//    @Test
-//    public void updateChangesHeroContent() throws Exception {
-//        Hero myHe = setupNewPost();
-//        String formerContent = post.getContent();
-//        LocalDateTime formerDate = post.getCreatedAt();
-//        int formerId = post.getId();
-//
-//        post.update("Android: Day 40");
-//
-//        assertEquals(formerId, post.getId());
-//        assertEquals(formerDate, post.getCreatedAt());
-//        assertNotEquals(formerContent, post.getContent());
-//    }
-//...
+    @Test
+    public void updateChangesHeroContent() throws Exception {
+        Hero myHero = setupNewHero();
+        String formerName = myHero.getName();
+        int formerAge = myHero.getAge();
+        String formerSpecialPowers= myHero.getSpecialPowers();
+        String formerWeakness= myHero.getWeakness();
+
+        LocalDateTime formerDate = myHero.getCreatedAt();
+        int formerId = myHero.getId();
+
+        myHero.update("Mercy", 35, "Fire-breather", "anger");
+
+        assertEquals(formerId, myHero.getId());
+        assertEquals(formerDate, myHero.getCreatedAt());
+        assertNotEquals(formerName, myHero.getName());
+        assertNotEquals(formerAge, myHero.getAge());
+        assertNotEquals(formerSpecialPowers, myHero.getSpecialPowers());
+        assertNotEquals(formerWeakness, myHero.getWeakness());
+    }
 }
