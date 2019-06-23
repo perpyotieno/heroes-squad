@@ -2,6 +2,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.Assert.*;
 
 public class HeroTest {
@@ -61,5 +63,9 @@ public class HeroTest {
         assertTrue(Hero.getAll().contains(otherHero));
     }
 
-
+    @Test
+    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception{
+        Hero myHero = setupNewHero();
+        assertEquals(LocalDateTime.now().getDayOfWeek(), myHero.getCreatedAt().getDayOfWeek());
+    }
 }

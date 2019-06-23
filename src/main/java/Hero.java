@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Hero {
@@ -6,6 +7,7 @@ public class Hero {
     private String specialPowers;
     private String weakness;
     private static ArrayList<Hero> instances = new ArrayList<>();
+    private LocalDateTime createdAt;
 
 
     public Hero (String name, int age, String specialPowers, String weakness){
@@ -14,6 +16,7 @@ public class Hero {
     this.specialPowers= specialPowers;
     this.weakness = weakness;
     instances.add(this);
+        this.createdAt = LocalDateTime.now();
 
 }
 
@@ -39,4 +42,9 @@ public class Hero {
     public String getWeakness(){
     return weakness;
     }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
 }
