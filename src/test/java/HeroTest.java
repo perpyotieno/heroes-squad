@@ -110,9 +110,16 @@ public class HeroTest {
     @Test
     public void deleteDeletesASpecificHero() throws Exception {
         Hero myHero = setupNewHero();
-        Hero otherPost = new Hero("Mercy", 35, "night vision", "faithless");
+        Hero otherHero = new Hero("Mercy", 35, "night vision", "faithless");
         myHero.deleteHero();
         assertEquals(1, Hero.getAll().size());
         assertEquals(Hero.getAll().get(0).getId(), 2);
+    }@Test
+    public void deleteAllHerosDeletesAllHeros() throws Exception {
+        Hero myHero = setupNewHero();
+        Hero otherHero = setupNewHero();
+
+        Hero.clearAllPosts();
+        assertEquals(0, Hero.getAll().size());
     }
 }
