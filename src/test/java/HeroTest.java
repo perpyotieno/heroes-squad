@@ -11,9 +11,18 @@ public class HeroTest {
     }
 
     @Test
-    public void newHeroObjectGetsCorrectlyCreated_true() throws Exception {
+    public void NewHeroObjectGetsCorrectlyCreated_true() throws Exception {
         Hero hero= new Hero("perpy", 30, "shapeshifting", "envy");
         assertEquals(true, hero instanceof Hero);
+    }
+    public Hero setupNewHero(){
+        return new Hero ("perpy", 30, "shapeshifting", "envy");
+    }
+
+    @Test
+    public void HeroInstantiatesWithName_true() throws Exception{
+        Hero myHero= setupNewHero();
+        assertEquals("perpy", myHero.getName() );
     }
 
     @After
