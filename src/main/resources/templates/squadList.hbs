@@ -4,10 +4,14 @@
 
     {{#if squads}}
         {{#each squads}}
-            <p> {{name}}</p>
-            <p>{{squadSize}}</p>
-            <p>{{cause}}</p>
-<!--            <p><a href="/heros/{{id}}">Read More...</a> </p>-->
+            <ul>
+                <li><p> Squad Name: <span>{{name}}</span></p>
+                <p> Squad Size: {{squadSize}}</p>
+                <p>Cause: {{cause}}</p> </li>
+
+            </ul>
+
+
         {{/each}}
     {{else}}
         <p>No Squads yet!</p>

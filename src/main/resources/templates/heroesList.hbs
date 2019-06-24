@@ -1,19 +1,13 @@
 {{#partial "content"}}
 
-
-
-
-
-
-
     <h1>Heroes</h1>
 
 {{#if heroes}}
     {{#each heroes}}
-   <p> {{name}}</p>
-    <p>{{age}}</p>
-    <p>{{specialPowers}}</p>
-    <p>{{weakness}}</p>
+   <p>Name: <span>{{name}}</span></p>
+    <p>Age: {{age}}</p>
+    <p>Super Powers: {{specialPowers}}</p>
+    <p>Weakness: {{weakness}}</p>
         <p><a href="/heros/{{id}}">Read More...</a> </p>
     {{/each}}
     <p class="text-muted"><a href="/heros/delete">DELETE ALL POSTS</a></p>

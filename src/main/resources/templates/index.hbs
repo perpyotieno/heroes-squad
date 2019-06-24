@@ -1,12 +1,26 @@
+{{#partial "styles"}}
+    <link rel='stylesheet' href='/css/index.css'>
+{{/partial}}
+
 {{#partial "content"}}
 
     <div class="page-header">
-        <img src="https://images.unsplash.com/7/color-correct-coffee.JPG?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80" width="70%">
-        <h1>Welcome to our Hero Squad website. <br> <small>A journey into code!</small></h1>
+
+        <h1>Welcome to our Hero Squad website. <br> <small>There's no Hero without a Villain!</small></h1>
     </div>
 
-    <Button><a href="/hero">Hero</a> </Button>
-    <Button><a href="/squad"> Squad</a></Button>
+    <div class="button-all">
+        <a href="/hero" class="btn btn-half">Hero</a>
+        <a href="/squad" class="btn btn-half"> Squad</a>
+
+    </div>
 
 {{/partial}}
 {{>layout.hbs}}
+
+
+
+
+
+
+

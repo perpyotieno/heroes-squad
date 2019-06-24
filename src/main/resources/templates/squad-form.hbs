@@ -1,44 +1,32 @@
+
+{{#partial "styles"}}
+    <link rel='stylesheet' href='/css/hero.css'>
+{{/partial}}
+
 {{#partial "content"}}
-<!--    {{#if editHero}}-->
-<!--        <h1>Edit your Hero's entries!</h1>-->
-<!--        <form action="/heros/{{editHero.id}}/update" method="post">-->
-
-<!--            <label for="name">Name</label>-->
-<!--            <input id="name" name="name" type="text" value="{{editHero.name}}">-->
-
-<!--            <label for="age">Age</label>-->
-<!--            <input id="age" name="age" type="text" value="{{editHero.age}}">-->
-
-<!--            <label for="specialPowers">Special Powers</label>-->
-<!--            <input id="specialPowers" name="specialPowers" type="text" value="{{editHero.specialPowers}}">-->
-
-<!--            <label for="weakness">Weakness</label>-->
-<!--            <input id="weakness" name="weakness" type="text" value="{{editHero.weakness}}">-->
-
-<!--            <button type="submit" class="btn btn-default">Update Hero</button>-->
-<!--        </form>-->
-<!--    {{else}}-->
 
         <h1>Post Squad!</h1>
 
-        <p>Add a new Squadp>
+        <p>Add a new Squad</p>
 
-        <form action="/squad/new" method="POST">
+        <form action="/squad/new" method="POST" class="form-group">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text">
+            <input id="name" name="name" type="text" class="form-control">
 
             <label for="squadSize">Squad Size</label>
-            <input id="squadSize" name="squadSize" type="text">
+            <input id="squadSize" name="squadSize" type="text" class="form-control">
 
             <label for="cause">Cause</label>
-            <input id="cause" name="cause" type="text">
+            <input id="cause" name="cause" type="text" class="form-control"><br>
 
 
             <button type="submit" class="btn btn-default">Add Squad</button>
         </form>
+<div class="button-all">
+    <a href="/squad/list" class="btn btn-half">Click to view your Squad List</a>
+</div>
 
-        <button><a href="/squad/list">Click to view your Squad List</a></button>
-<!--    {{/if}}-->
+
 {{/partial}}
 
 {{> layout.hbs}}
